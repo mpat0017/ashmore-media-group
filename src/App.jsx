@@ -106,20 +106,20 @@ export default function App() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 font-black text-zinc-950 shadow-lg shadow-orange-900/30">
-              A
-            </a>
+  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 font-black text-zinc-950 shadow-lg shadow-orange-900/30">
+    A
+  </div>
 
-            <div>
-              <div className="text-lg font-bold tracking-wide">
-                Ashmore Media Group
-              </div>
+  <div>
+    <div className="text-lg font-bold tracking-wide">
+      Ashmore Media Group
+    </div>
 
-              <div className="text-xs uppercase tracking-[0.25em] text-amber-400">
-                Live Production · AVL · Consulting
-              </div>
-            </div>
-          </div>
+    <div className="text-xs uppercase tracking-[0.25em] text-amber-400">
+      Live Production · AVL · Consulting
+    </div>
+  </div>
+</a>
 
           <nav className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
             <a href="#services" className="hover:text-amber-300">
