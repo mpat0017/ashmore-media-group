@@ -1,52 +1,36 @@
-<div className="bg-red-500 text-white p-10 text-4xl">
-  TEST
-</div>
-import { motion } from "framer-motion";
+import React from "react";
 import {
   BadgeCheck,
   Church,
   SlidersHorizontal,
-  RadioTower,
-  Wrench,
   Mail,
   Phone,
   MapPin,
   ArrowRight,
   Speaker,
-  Headphones,
-  Cable,
+  Music2,
 } from "lucide-react";
 
 const services = [
   {
-    icon: <Speaker className="h-7 w-7" />,
-    title: "Live Sound Production",
-    text: "Professional audio support for bands, venues, churches, private events, and corporate productions.",
+    icon: <Speaker className="h-8 w-8" />,
+    title: "System Design",
+    text: "Tailored audio systems designed for performance, clarity, coverage, and long-term reliability.",
   },
   {
-    icon: <SlidersHorizontal className="h-7 w-7" />,
-    title: "System Design & Consulting",
-    text: "Practical recommendations for PA systems, stage monitoring, wireless, DSP, speaker coverage, and room acoustics.",
+    icon: <SlidersHorizontal className="h-8 w-8" />,
+    title: "Venue Consulting",
+    text: "Acoustics, speaker coverage, stage volume, infrastructure, and upgrade planning for live rooms.",
   },
   {
-    icon: <Church className="h-7 w-7" />,
+    icon: <Church className="h-8 w-8" />,
     title: "Church AVL Support",
-    text: "Audio, video, livestream, stage, and volunteer-friendly technology solutions for worship environments.",
+    text: "Audio, video, livestream, and volunteer-friendly technology support for worship environments.",
   },
   {
-    icon: <Wrench className="h-7 w-7" />,
-    title: "Install & Integration Planning",
-    text: "Planning, vendor coordination, gear selection, and upgrade roadmaps for venues and multi-use spaces.",
-  },
-  {
-    icon: <RadioTower className="h-7 w-7" />,
-    title: "Wireless & IEM Systems",
-    text: "Frequency-conscious wireless microphone and in-ear monitor planning for reliable live performance.",
-  },
-  {
-    icon: <Cable className="h-7 w-7" />,
-    title: "Production Infrastructure",
-    text: "Signal flow, stage boxes, Dante/AES50 workflows, racks, cabling, power, and practical field-ready systems.",
+    icon: <Music2 className="h-8 w-8" />,
+    title: "Live Production",
+    text: "Professional production support for bands, venues, private events, corporate events, and concerts.",
   },
 ];
 
@@ -55,9 +39,9 @@ const projectTypes = [
   "Live Music Venues",
   "Portable PA Systems",
   "Band & Event Production",
-  "Speaker System Recommendations",
   "AVL Troubleshooting",
   "Stage Monitoring",
+  "Wireless & IEM Systems",
   "Livestream Audio Workflows",
 ];
 
@@ -66,22 +50,20 @@ const brands = [
   "Yorkville",
   "Yamaha",
   "Allen & Heath",
-  "Behringer",
+  "Behringer WING",
   "Shure",
   "Sennheiser",
-  "QSC",
   "Dante",
-  "ChamSys",
 ];
 
 function Button({ href, children, variant = "primary" }) {
   const base =
-    "inline-flex items-center justify-center rounded-2xl px-7 py-3 text-base font-bold transition duration-200";
+    "inline-flex items-center justify-center rounded-sm px-7 py-3 text-sm font-black uppercase tracking-[0.18em] transition duration-200";
 
   const styles =
     variant === "primary"
-      ? "bg-amber-400 text-zinc-950 hover:bg-amber-300"
-      : "border border-white/20 bg-white/5 text-white hover:bg-white/10";
+      ? "border border-orange-600 bg-transparent text-stone-100 hover:bg-orange-600 hover:text-zinc-950"
+      : "border border-stone-600 bg-black/30 text-stone-100 hover:border-orange-600 hover:text-orange-500";
 
   return (
     <a href={href} className={`${base} ${styles}`}>
@@ -90,279 +72,188 @@ function Button({ href, children, variant = "primary" }) {
   );
 }
 
-function Card({ children, className = "" }) {
+function AMGBadge({ small = false }) {
   return (
-    <div
-      className={`rounded-3xl border border-white/10 bg-white/[0.04] ${className}`}
-    >
-      {children}
-    </div>
+    <img
+      src="/amg-badge.png"
+      alt="Ashmore Media Group AMG badge"
+      className={
+        small
+          ? "h-14 w-14 object-contain"
+          : "h-56 w-56 object-contain drop-shadow-2xl md:h-80 md:w-80"
+      }
+    />
+  );
+}
+
+function Logo({ className = "" }) {
+  return (
+    <img
+      src="/amg-logo.png"
+      alt="Ashmore Media Group"
+      className={`object-contain ${className}`}
+    />
   );
 }
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur-xl">
+    <div className="min-h-screen bg-zinc-950 text-stone-100">
+      <header className="sticky top-0 z-50 border-b border-stone-800/80 bg-black/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-3">
-  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-orange-600 font-black text-zinc-950 shadow-lg shadow-orange-900/30">
-    A
-  </div>
+          <a href="/" className="flex items-center gap-4">
+            <AMGBadge small />
+            <Logo className="h-14 w-auto" />
+          </a>
 
-  <div>
-    <div className="text-lg font-bold tracking-wide">
-      Ashmore Media Group
-    </div>
-
-    <div className="text-xs uppercase tracking-[0.25em] text-amber-400">
-      Live Production · AVL · Consulting
-    </div>
-  </div>
-</a>
-
-          <nav className="hidden items-center gap-8 text-sm text-zinc-300 md:flex">
-            <a href="#services" className="hover:text-amber-300">
-              Services
-            </a>
-
-            <a href="#work" className="hover:text-amber-300">
-              Work
-            </a>
-
-            <a href="#about" className="hover:text-amber-300">
-              About
-            </a>
-
-            <a href="#contact" className="hover:text-amber-300">
-              Contact
-            </a>
+          <nav className="hidden items-center gap-9 text-xs font-black uppercase tracking-[0.18em] text-stone-200 md:flex">
+            <a href="#services" className="hover:text-orange-500">Services</a>
+            <a href="#projects" className="hover:text-orange-500">Projects</a>
+            <a href="#about" className="hover:text-orange-500">About</a>
+            <a href="#contact" className="hover:text-orange-500">Contact</a>
           </nav>
+
+          <div className="hidden md:block">
+            <Button href="#contact">Let’s Talk</Button>
+          </div>
         </div>
       </header>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.20),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(249,115,22,0.16),transparent_35%)]" />
+      <section
+        className="relative overflow-hidden border-b border-stone-800 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
 
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:44px_44px] opacity-20" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-[0.95fr_1.05fr] md:py-32">
+          <div>
+            <div className="mb-6 h-1 w-16 bg-orange-600" />
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-[1.1fr_0.9fr] md:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200">
-              <BadgeCheck className="h-4 w-4" />
-              DFW-based live production and AVL consulting
-            </div>
-
-            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-              Better sound for rooms that matter.
+            <h1 className="text-5xl font-black uppercase leading-[0.92] tracking-tight text-stone-100 md:text-7xl">
+              Sound.
+              <br />
+              Vision.
+              <br />
+              <span className="text-orange-600">Experience.</span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-300 md:text-xl">
-              Ashmore Media Group helps churches, venues, artists, and event
-              teams build practical, reliable audio and media systems that work
-              in the real world, not just on a spec sheet.
+            <p className="mt-7 max-w-xl text-lg leading-8 text-stone-300 md:text-xl">
+              Professional audio, production, and consulting for houses of worship,
+              venues, artists, and live events.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <Button href="#contact">
-                Start a Conversation
-                <ArrowRight className="ml-2 h-4 w-4" />
+                Let’s Talk <ArrowRight className="ml-3 h-4 w-4" />
               </Button>
-
               <Button href="#services" variant="secondary">
                 View Services
               </Button>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <Card className="overflow-hidden bg-white/[0.06] shadow-2xl shadow-black/40 backdrop-blur">
-              <div className="border-b border-white/10 bg-zinc-900/80 px-6 py-5">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-400" />
-                  <span className="h-3 w-3 rounded-full bg-amber-400" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                </div>
-              </div>
-
-              <div className="space-y-5 p-7">
-                <div className="rounded-3xl border border-amber-400/20 bg-amber-400/10 p-5">
-                  <div className="text-sm uppercase tracking-[0.2em] text-amber-300">
-                    Project Snapshot
-                  </div>
-
-                  <div className="mt-3 text-3xl font-black">
-                    Church · Venue · Live Event
-                  </div>
-
-                  <p className="mt-3 text-zinc-300">
-                    Coverage, intelligibility, stage volume, system reliability,
-                    and volunteer-friendly workflows.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="rounded-3xl bg-zinc-900 p-5">
-                    <div className="text-3xl font-black text-amber-300">
-                      20+
-                    </div>
-
-                    <div className="mt-1 text-sm text-zinc-400">
-                      years live experience
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl bg-zinc-900 p-5">
-                    <div className="text-3xl font-black text-amber-300">
-                      DFW
-                    </div>
-
-                    <div className="mt-1 text-sm text-zinc-400">
-                      North Texas market
-                    </div>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl bg-zinc-900 p-5">
-                  <div className="mb-3 flex items-center gap-2 font-semibold">
-                    <Headphones className="h-5 w-5 text-amber-300" />
-                    Field-tested recommendations
-                  </div>
-
-                  <p className="text-sm leading-6 text-zinc-400">
-                    From small rooms to high-energy stages, recommendations are
-                    shaped by hands-on production experience.
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+          <div className="flex justify-center">
+            <AMGBadge />
+          </div>
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="mb-12 max-w-3xl">
-          <div className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
-            Services
-          </div>
-
-          <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-            Audio and media support without the fog machine sales pitch.
-          </h2>
-
-          <p className="mt-5 text-lg leading-8 text-zinc-300">
-            Practical planning, smart gear selection, and real-world execution
-            for rooms where clarity and reliability matter.
-          </p>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <section id="services" className="border-b border-stone-800 bg-zinc-950">
+        <div className="mx-auto grid max-w-7xl gap-0 px-6 py-14 md:grid-cols-4">
           {services.map((service) => (
-            <Card
+            <div
               key={service.title}
-              className="transition hover:-translate-y-1 hover:bg-white/[0.07]"
+              className="border-stone-800 px-6 py-10 text-center md:border-r last:md:border-r-0"
             >
-              <div className="p-7">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300">
-                  {service.icon}
-                </div>
-
-                <h3 className="text-xl font-bold text-white">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 leading-7 text-zinc-400">
-                  {service.text}
-                </p>
+              <div className="mb-5 flex justify-center text-orange-600">
+                {service.icon}
               </div>
-            </Card>
+              <h3 className="text-lg font-black uppercase tracking-[0.12em] text-stone-100">
+                {service.title}
+              </h3>
+              <p className="mx-auto mt-4 max-w-xs text-sm leading-7 text-stone-400">
+                {service.text}
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section
-        id="work"
-        className="border-y border-white/10 bg-white/[0.03]"
-      >
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <div className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
-              Project Types
+      <section id="projects" className="border-b border-stone-800 bg-black">
+        <div className="mx-auto max-w-7xl px-6 py-20">
+          <div className="mb-12 text-center">
+            <div className="mx-auto mb-5 h-1 w-16 bg-orange-600" />
+            <div className="text-xs font-black uppercase tracking-[0.35em] text-orange-600">
+              Built for real rooms
             </div>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-              Built for the rooms where people actually gather.
+            <h2 className="mt-4 text-4xl font-black uppercase tracking-tight text-stone-100 md:text-5xl">
+              Production-minded AVL support
             </h2>
-
-            <p className="mt-5 text-lg leading-8 text-zinc-300">
-              Every room has its own personality: reflections, stage volume,
-              volunteer workflows, budget realities, and the occasional mystery
-              buzz hiding behind a rack panel.
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-stone-400">
+              From church sound upgrades to live venue systems, Ashmore Media Group
+              focuses on practical solutions that work once the room fills up, the
+              band starts, and the clock is running.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {projectTypes.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-3 rounded-2xl border border-white/10 bg-zinc-950/50 p-4"
+                className="flex items-center gap-3 border border-stone-800 bg-zinc-950/70 p-5"
               >
-                <BadgeCheck className="h-5 w-5 shrink-0 text-amber-300" />
-
-                <span className="font-medium text-zinc-200">{item}</span>
+                <BadgeCheck className="h-5 w-5 shrink-0 text-orange-600" />
+                <span className="text-sm font-bold uppercase tracking-[0.08em] text-stone-200">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <section id="about" className="border-b border-stone-800 bg-zinc-950">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <div className="text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
-              About
+            <div className="text-xs font-black uppercase tracking-[0.35em] text-orange-600">
+              Why Ashmore
             </div>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight md:text-5xl">
-              Led by working production experience.
+            <h2 className="mt-4 text-4xl font-black uppercase tracking-tight text-stone-100 md:text-5xl">
+              Field-tested recommendations. No showroom fantasy.
             </h2>
           </div>
 
-          <div className="space-y-6 text-lg leading-8 text-zinc-300">
+          <div className="space-y-6 text-lg leading-8 text-stone-300">
             <p>
               Ashmore Media Group was created to help organizations make better
               decisions about live audio, AVL technology, and production
               infrastructure.
             </p>
-
             <p>
-              We work best with churches, venues, artists, and event spaces that
-              need honest guidance, practical system planning, and someone who
-              understands what happens after the gear leaves the box.
+              The goal is simple: systems that sound better, operate more reliably,
+              and make sense for the people using them every week.
+            </p>
+            <p>
+              We work best with churches, venues, artists, and event spaces that need
+              honest guidance, practical system planning, and someone who understands
+              what happens after the gear leaves the box.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8 md:p-10">
-          <div className="mb-6 text-sm font-bold uppercase tracking-[0.25em] text-amber-400">
-            Brands & Ecosystems
+      <section className="border-b border-stone-800 bg-stone-200 text-zinc-950">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className="mb-8 text-center text-xs font-black uppercase tracking-[0.28em]">
+            Trusted systems, brands, and ecosystems
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             {brands.map((brand) => (
               <span
                 key={brand}
-                className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-sm font-semibold text-zinc-200"
+                className="border border-zinc-900/20 px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-zinc-800"
               >
                 {brand}
               </span>
@@ -371,71 +262,70 @@ export default function App() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="relative overflow-hidden border-t border-white/10 bg-amber-400 text-zinc-950"
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.6),transparent_28%)] opacity-40" />
-
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_0.8fr]">
+      <section id="contact" className="bg-black">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_0.9fr]">
           <div>
-            <h2 className="text-4xl font-black tracking-tight md:text-6xl">
-              Let’s make the room work better.
+            <div className="mb-5 h-1 w-16 bg-orange-600" />
+            <h2 className="text-4xl font-black uppercase tracking-tight text-stone-100 md:text-6xl">
+              Let’s talk about your next project.
             </h2>
-
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-800">
-              Need help planning a system, cleaning up a room, upgrading
-              production, or figuring out which gear actually fits the job?
-              Reach out and let’s talk through it.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-400">
+              Need help planning a system, cleaning up a room, upgrading production,
+              or figuring out which gear actually fits the job? Reach out and let’s
+              talk through it.
             </p>
           </div>
 
-          <Card className="border-zinc-950/10 bg-zinc-950 text-white shadow-2xl">
-            <div className="space-y-5 p-7">
+          <div className="border border-orange-700/70 bg-zinc-950 p-8">
+            <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <Phone className="h-5 w-5 text-amber-300" />
+                <Mail className="h-5 w-5 text-orange-600" />
+                <a
+                  href="mailto:mike@ashmoremediagroup.com"
+                  className="font-bold hover:text-orange-500"
+                >
+                  mike@ashmoremediagroup.com
+                </a>
+              </div>
 
+              <div className="flex items-center gap-4">
+                <Phone className="h-5 w-5 text-orange-600" />
                 <a
                   href="tel:8178745153"
-                  className="text-lg font-semibold hover:text-amber-300"
+                  className="font-bold hover:text-orange-500"
                 >
                   (817) 874-5153
                 </a>
               </div>
 
               <div className="flex items-center gap-4">
-                <Mail className="h-5 w-5 text-amber-300" />
-
-                <a
-                  href="mailto:info@ashmoremediagroup.com"
-                  className="text-lg font-semibold hover:text-amber-300"
-                >
-                  info@ashmoremediagroup.com
-                </a>
+                <MapPin className="h-5 w-5 text-orange-600" />
+                <span className="font-bold">Arlington / DFW, Texas</span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <MapPin className="h-5 w-5 text-amber-300" />
-
-                <span className="text-lg font-semibold">
-                  Arlington / DFW, Texas
-                </span>
+              <div className="pt-4">
+                <Button href="mailto:mike@ashmoremediagroup.com?subject=Project%20Inquiry%20-%20Ashmore%20Media%20Group">
+                  Email Ashmore Media Group
+                </Button>
               </div>
-
-              <a
-                href="mailto:info@ashmoremediagroup.com?subject=Project%20Inquiry%20-%20Ashmore%20Media%20Group"
-                className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-amber-400 px-6 py-3 text-center font-bold text-zinc-950 transition hover:bg-amber-300"
-              >
-                Email Ashmore Media Group
-              </a>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 bg-zinc-950 px-6 py-8 text-center text-sm text-zinc-500">
-        © {new Date().getFullYear()} Ashmore Media Group. Live Production · AVL
-        Consulting · DFW, Texas.
+      <footer className="border-t border-stone-800 bg-zinc-950 px-6 py-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
+          <a href="/" className="flex items-center gap-4">
+            <AMGBadge small />
+            <Logo className="h-14 w-auto" />
+          </a>
+
+          <div className="text-center text-xs uppercase tracking-[0.22em] text-stone-500 md:text-right">
+            © {new Date().getFullYear()} Ashmore Media Group.
+            <br />
+            Sound. Vision. Experience.
+          </div>
+        </div>
       </footer>
     </div>
   );
