@@ -79,6 +79,13 @@ const brands = [
   "RCF",
   "Electro-Voice",
   "JBL / Harman",
+  "Shure",
+  "Sennheiser",
+  "Audix",
+  "sE",
+  "Waves Audio",
+  "Audinate",
+  "Avid", 
 ];
 
 function Button({ href, children, variant = "primary" }) {
