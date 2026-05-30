@@ -46,14 +46,12 @@ const projectTypes = [
 ];
 
 const brands = [
-  "RCF",
-  "Yorkville",
-  "Yamaha",
   "Allen & Heath",
-  "Behringer WING",
-  "Shure",
-  "Sennheiser",
-  "Dante",
+  "Midas",
+  "Yamaha",
+  "RCF",
+  "Electro-Voice",
+  "JBL / Harman",
 ];
 
 function Button({ href, children, variant = "primary" }) {
@@ -246,7 +244,7 @@ export default function App() {
       <section className="border-b border-stone-800 bg-stone-200 text-zinc-950">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="mb-8 text-center text-xs font-black uppercase tracking-[0.28em]">
-            Trusted systems, brands, and ecosystems
+            Trusted Brands
           </div>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -300,7 +298,7 @@ export default function App() {
 
               <div className="flex items-center gap-4">
                 <MapPin className="h-5 w-5 text-orange-600" />
-                <span className="font-bold">Arlington / DFW, Texas</span>
+                <span className="font-bold">Dallas / Fort Worth, Texas</span>
               </div>
 
               <div className="pt-4">
