@@ -195,6 +195,44 @@ export default function App() {
         </div>
       </section>
 
+      {/* STATS BAR */}
+      <section className="border-b border-stone-800 bg-black">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-10 text-center md:grid-cols-4">
+          <div>
+            <div className="text-4xl font-black text-orange-600">20+</div>
+            <div className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-400">
+              Years of Live Production Experience
+            </div>
+          </div>
+
+          <div>
+            <div className="text-4xl font-black text-orange-600">750+</div>
+            <div className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-400">
+              Live Events Supported
+            </div>
+            <div className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-stone-500">
+              During 2025
+            </div>
+          </div>
+
+          <div>
+            <div className="text-4xl font-black text-orange-600">DFW</div>
+            <div className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-400">
+              Based & Serving Texas
+            </div>
+          </div>
+
+          <div>
+            <div className="text-3xl font-black text-orange-600">
+              Venues • Churches
+            </div>
+            <div className="mt-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-400">
+              Artists • Events
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="services" className="border-b border-stone-800 bg-zinc-950">
         <div className="mx-auto grid max-w-7xl gap-0 px-6 py-14 md:grid-cols-4">
           {services.map((service) => (
@@ -310,29 +348,32 @@ export default function App() {
         </div>
       </section>
 
-      <section className="border-b border-stone-800 bg-stone-200 text-zinc-950">
-        <div className="mx-auto max-w-7xl px-6 py-12">
-          <div className="mb-4 text-center text-xs font-black uppercase tracking-[0.28em]">
-            Trusted Brands
-          </div>
+      <section className="border-b border-stone-800 bg-black text-stone-100">
+  <div className="mx-auto max-w-7xl px-6 py-12">
+    <div className="mb-4 text-center text-xs font-black uppercase tracking-[0.28em] text-orange-600">
+      Trusted Brands
+    </div>
 
-          <p className="mx-auto mb-8 max-w-3xl text-center text-sm font-medium leading-7 text-zinc-700">
-            We regularly work with and recommend products from leading professional
-            audio manufacturers including:
-          </p>
+    <p className="mx-auto mb-8 max-w-3xl text-center text-sm font-medium leading-7 text-stone-400">
+      We regularly work with and recommend products from leading professional
+      audio manufacturers including:
+    </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
-            {brands.map((brand) => (
-              <span
-                key={brand}
-                className="border border-zinc-900/20 px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-zinc-800"
-              >
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="overflow-hidden py-4">
+      <div className="brand-scroll whitespace-nowrap">
+        {[...brands, ...brands, ...brands].map((brand, index) => (
+          <span
+            key={index}
+            className="mx-10 text-lg font-black uppercase tracking-[0.18em] text-orange-600"
+          >
+            {brand}
+            <span className="ml-10 text-stone-600">•</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       <section id="contact" className="bg-black">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1fr_0.9fr]">
